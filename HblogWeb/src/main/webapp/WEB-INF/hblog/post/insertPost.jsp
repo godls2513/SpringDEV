@@ -24,6 +24,7 @@
 		</form>
 		<button id="btn-insert" class="btn btn-secondary">포스트 등록</button>
 	</div>
+	
 	<script>
 	$(document).ready(function() {
 		  $('#content').summernote({
