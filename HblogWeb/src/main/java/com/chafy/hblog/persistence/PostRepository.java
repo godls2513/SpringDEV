@@ -9,4 +9,5 @@ import com.chafy.hblog.domain.Post;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Integer>{
+	
 }
