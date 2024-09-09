@@ -24,6 +24,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 public class Post {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
