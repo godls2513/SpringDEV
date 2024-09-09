@@ -1,0 +1,48 @@
+#properties 방식 설정
+#spring.application.name=HblogWeb
+## 서버 설정
+#server.port=8080 
+#server.servlet.context-path=/
+#server.servlet.encoding.charset=UTF-8
+#
+## 뷰리졸버 설정
+#spring.mvc.view.prefix=/WEB-INF/hblog/
+#spring.mvc.view.suffix=.jsp
+#---------------------------------------------
+
+#YAML 방식
+
+# 서버 설정
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+
+# 뷰리졸버 설정
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/hblog/
+      suffix: .jsp
+
+# 데이터소스 설정
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/test
+    username: sa
+    password:
+
+# JPA 설정
+  jpa:
+    open-in-view: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    properties:
+      "[hibernate.format_sql]": true
+
