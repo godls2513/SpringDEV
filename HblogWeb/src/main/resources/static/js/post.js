@@ -39,7 +39,6 @@ let postObject = {
 		console.log(post);
 	},
 }
-
 // postObject 객체의 init() 함수 호출
 postObject.init();
 
