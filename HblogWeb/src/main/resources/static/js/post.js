@@ -6,6 +6,12 @@ let postObject = {
 		$("#btn-insert").on("click", () => {
 			_this.insertPost();
 		});
+		$("#btn-update").on("click", () => {
+			_this.updatePost();
+		});
+		$("#btn-delete").on("click", () => {
+			_this.deletePost();
+		});
 	},
 
 	insertPost: function() {
@@ -38,6 +44,47 @@ let postObject = {
 		// post 객체의 값을 콘솔에 출력
 		console.log(post);
 	},
+	
+	updatePost : function() {
+		alert("포스트 수정 요청됨");
+		let post = {
+			id : $("#id").val(),
+			title : $("#title").val(),
+			content : $("#content").val()
+		}
+		
+		$.ajax({
+			type: "PUT",
+			url:"/post",
+			data: JSON.stringify(post),
+			contentType:"application/json; charset=utf-8"
+		}).done(function(response) {
+			let message = response["data"];
+			alert(message);
+			location = "/";
+		}).fail(function(error) {
+			let message = error["data"];
+			alert("문제 발생 : " + message);
+		});
+	},
+	
+	deletePost : function() {
+		alert("포스트 삭제 요청됨");
+		let id = $("#id").text();
+		
+		$.ajax({
+			type: "DELETE",
+			url: "/post/" + id,
+			contentType:"application/json; charset=utf-8"
+		}).done(function(response) {
+			let message = response["data"];
+			alert(message);
+			location = "/";
+		}).fail(function(error) {
+			let message = error["data"];
+			alert("문제 발생 " + message);
+		});
+	}
 }
 // postObject 객체의 init() 함수 호출
 postObject.init();

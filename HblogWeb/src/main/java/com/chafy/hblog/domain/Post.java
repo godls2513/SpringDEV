@@ -43,7 +43,7 @@ public class Post {
 	private int cnt;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "userid")
+	@JoinColumn(name = "username")
 	private User user;
 	
 }
